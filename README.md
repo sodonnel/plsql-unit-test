@@ -104,21 +104,29 @@ When testing database code, it can be useful to ensure a given table has zero, o
 To assert the users table has a single row for the username foouser:
 
     assert_table_has_one_row("users", 
-                             "where username = 'foouser',
+                             "where username = 'foouser'",
                              "Ensure the users table has a single row")
 
 Similarly, to ensure the users table does not have a row:
 
     assert_table_has_zero_rows("users", 
-                               "where username = 'foouser',
+                               "where username = 'foouser'",
                                "Ensure the users table zero rows")
 
 Finally, to check a table has a given number of rows:
 
-    assert_table_has_zero_rows("users",
+    assert_table_has_many_rows("users",
                                10 
-                               "where status = 'locked'
+                               "where status = 'locked'"
                                "Ensure 10 users are locked")
+
+It is also possible to pass an array as the where clause instead of a string. In this case, the first element of the array should be a string containing the where clause with bind variable placeholders. The remaining elements of the array are the bind variables. Ruby types are automatically converted to Oracle types by SimpleOracleJDBC behind the scenes. For example:
+
+    assert_table_has_many_rows("users",
+                               10 
+                               ["where status = ?", 'locked']
+                               "Ensure 10 users are locked")
+
 
 ## Set The Database Interface
 
