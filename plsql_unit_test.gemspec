@@ -1,6 +1,6 @@
 Gem::Specification.new do |s| 
   s.name = "plsql_unit_test"
-  s.version = "0.2.0"
+  s.version = "0.2.1"
   s.author = "Stephen O'Donnell"
   s.email = "stephen@betteratoracle.com"
   s.homepage = "http://betteratoracle.com"
@@ -14,6 +14,6 @@ Gem::Specification.new do |s|
 #  s.test_files = FileList["{test}/**/*test.rb"].to_a
   s.has_rdoc = true
   s.extra_rdoc_files = ["README.md"]
-  s.add_dependency("data_factory", ">=0.1.2")
+  s.add_dependency("data_factory", ">=0.3.0")
   s.add_dependency("simpleOracleJDBC", ">=0.3.0")
 end
